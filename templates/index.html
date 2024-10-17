@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Attack Risk Prediction</title>
+    <style>
+        /* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* More modern font */
+}
+
+body {
+    background-color: #e9f5fb; /* Softer background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Ensure no body scroll */
+}
+
+h1 {
+    text-align: center;
+    color: #007bff; /* Brighter heading color */
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Form Container */
+form {
+    background-color: #fff;
+    padding: 20px; /* Reduced padding */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow */
+    max-width: 450px;
+    width: 100%;
+    border-top: 6px solid #007bff; /* Accent color on top */
+    overflow-y: scroll; /* Allows scrolling */
+    height: 90vh; /* Limits form height */
+    
+    /* Hide Scrollbar */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+form::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+/* Form Labels and Inputs */
+label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 500;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px; /* Reduced padding */
+    margin-bottom: 15px; /* Reduced margin */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 91, 179, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    form {
+        padding: 10px; /* Reduced padding on smaller screens */
+    }
+
+    h1 {
+        font-size: 20px; /* Reduced title font size on smaller screens */
+    }
+
+    input[type="number"] {
+        font-size: 14px;
+        padding: 8px; /* Reduced padding in input fields */
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+ 
+
+    </style>
+</head>
+<body>
+    <form action="/predict" method="post">
+        <h1>Heart Attack Risk Prediction</h1>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="gender">Gender (0 for Female, 1 for Male):</label>
+        <input type="number" id="gender" name="gender" required><br>
+
+        <label for="family_history">Family History (0 for No, 1 for Yes):</label>
+        <input type="number" id="family_history" name="family_history" required><br>
+
+        <label for="smoking">Smoking (0 for No, 1 for Yes):</label>
+        <input type="number" id="smoking" name="smoking" required><br>
+
+        <label for="alcohol">Alcohol (0 for No, 1 for Yes):</label>
+        <input type="number" id="alcohol" name="alcohol" required><br>
+
+        <label for="physical_activity">Physical Activity (0 for No, 1 for Yes):</label>
+        <input type="number" id="physical_activity" name="physical_activity" required><br>
+
+        <label for="diet">Diet (0 for Poor, 1 for Healthy):</label>
+        <input type="number" id="diet" name="diet" required><br>
+
+        <label for="bmi">BMI:</label>
+        <input type="number" step="0.1" id="bmi" name="bmi" required><br>
+
+        <label for="blood_pressure">Blood Pressure:</label>
+        <input type="number" step="0.1" id="blood_pressure" name="blood_pressure" required><br>
+
+        <label for="cholesterol">Cholesterol:</label>
+        <input type="number" step="0.1" id="cholesterol" name="cholesterol" required><br>
+
+        <label for="diabetes">Diabetes (0 for No, 1 for Yes):</label>
+        <input type="number" id="diabetes" name="diabetes" required><br>
+
+        <label for="stress">Stress (0 for No, 1 for Yes):</label>
+        <input type="number" id="stress" name="stress" required><br>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
